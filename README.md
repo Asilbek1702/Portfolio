@@ -1,6 +1,6 @@
 # Asilbek Tashpulatov — Developer Portfolio
 
-**Live demo:** https://asilbek-portfolio.vercel.app  
+**Live demo:** https://asilbek-portfolio-chi.vercel.app  
 **GitHub:** https://github.com/Asilbek1702/portfolio
 
 ---
