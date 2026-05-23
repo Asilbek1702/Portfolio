@@ -57,7 +57,7 @@ export default function TechStack() {
       <div className="relative section-wrap">
         <SectionTitle eyebrow="Tech Stack" title="My" highlight="toolkit" />
 
-        <div ref={ref} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {TECH.map((group, gi) => (
             <AnimatedCard key={group.category} delay={gi * 0.12}>
               <div className="glass rounded-2xl p-6 h-full">

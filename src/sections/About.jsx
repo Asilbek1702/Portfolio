@@ -39,8 +39,7 @@ export default function About() {
             <div className="space-y-4 text-dim leading-7 text-[0.95rem] mb-10">
               <p>
                 I'm a full-stack developer and CS student at Central Asian University (Tashkent),
-                with hands-on experience building production-ready web applications.
-                My focus is the full cycle: from clean React UIs to containerized backends and CI/CD pipelines.
+                focused on the full delivery cycle: React frontends, containerized backends, and real deployments.
               </p>
               <p>
                 Over the past year I've completed multiple employer-assigned technical evaluations —
@@ -48,8 +47,7 @@ export default function About() {
                 and a Go task management service — all with Docker, real deployments, and full README documentation.
               </p>
               <p>
-                Currently exploring the intersection of AI and web development:
-                integrating LLM APIs, building Telegram bots, and using AI as a daily productivity multiplier.
+                Currently integrating LLM APIs into real projects and using AI tooling daily to ship faster.
               </p>
             </div>
 

@@ -86,7 +86,7 @@ export default function Contact() {
       <div className="relative section-wrap">
         <SectionTitle eyebrow="Contact" title="Let's work" highlight="together" />
 
-        <div ref={ref} className="grid lg:grid-cols-5 gap-10 lg:gap-14">
+        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-14">
           {/* Info panel */}
           <AnimatedCard className="lg:col-span-2">
             <div className="glass rounded-2xl p-6 h-full">

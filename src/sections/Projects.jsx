@@ -115,10 +115,10 @@ export default function Projects() {
         </AnimatedCard>
 
         {/* Regular projects grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {rest.map((p, i) => (
             <AnimatedCard key={p.title} delay={i * 0.07}>
-              <div className="glass glass-hover rounded-2xl overflow-hidden h-full flex flex-col group">
+              <div className="glass glass-hover rounded-2xl overflow-hidden h-full flex flex-col group min-w-0">
                 <div className="h-[3px]" style={{ background: `linear-gradient(90deg, ${p.accent}70, ${p.accent}15)` }} />
                 <div className="p-5 flex flex-col flex-1">
                   <div className="flex items-start justify-between mb-3">

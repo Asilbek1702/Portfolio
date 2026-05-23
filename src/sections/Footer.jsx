@@ -20,7 +20,7 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-white/[0.06] py-14 lg:py-16">
       <div className="section-wrap">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">

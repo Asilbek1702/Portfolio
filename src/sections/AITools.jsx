@@ -78,7 +78,7 @@ export default function AITools() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {TOOLS.map((tool, i) => (
             <AnimatedCard key={tool.name} delay={i * 0.08}>
               <div className="glass glass-hover rounded-2xl p-5 h-full relative overflow-hidden group">

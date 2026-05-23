@@ -185,3 +185,34 @@
     animation: shimmer 4s linear infinite;
   }
 }
+
+/* ── Mobile fixes ──────────────────────────────────── */
+@layer base {
+  /* Prevent horizontal scroll on all screen sizes */
+  html, body, #root {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Minimum touch target size 44px (Apple HIG / WCAG) */
+  button, a {
+    min-height: 44px;
+  }
+
+  /* Prevent zoom on input focus (iOS) */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
+@layer utilities {
+  /* Clamp font sizes for ultra-wide screens */
+  .text-hero {
+    font-size: clamp(2rem, 7vw, 5rem);
+  }
+
+  /* Safe area padding for notch devices */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+}
