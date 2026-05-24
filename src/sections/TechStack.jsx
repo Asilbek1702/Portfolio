@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import SectionTitle from '../components/SectionTitle'
 import AnimatedCard from '../components/AnimatedCard'
+import { useI18n } from '../i18n'
 
 const TECH = [
   {
@@ -48,6 +49,8 @@ const TECH = [
 
 export default function TechStack() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
+  const { t } = useI18n()
+  const tech = TECH.map((group, index) => ({ ...group, category: t.tech.categories[index] }))
 
   return (
     <section id="tech" className="relative py-24 lg:py-32">
@@ -55,10 +58,10 @@ export default function TechStack() {
         style={{ background: 'linear-gradient(to bottom, transparent, rgba(59,130,246,0.03), transparent)' }}
       />
       <div className="relative section-wrap">
-        <SectionTitle eyebrow="Tech Stack" title="My" highlight="toolkit" />
+        <SectionTitle {...t.tech.title} />
 
         <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          {TECH.map((group, gi) => (
+          {tech.map((group, gi) => (
             <AnimatedCard key={group.category} delay={gi * 0.12}>
               <div className="glass rounded-2xl p-6 h-full">
                 <div className="flex items-center gap-2 mb-6">

@@ -1,23 +1,45 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-
-const LINKS = [
-  { name: 'About',    href: '#about' },
-  { name: 'Stack',    href: '#tech' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'AI',       href: '#ai-tools' },
-  { name: 'Contact',  href: '#contact' },
-]
+import { useI18n } from '../i18n'
 
 const scrollTo = (href, closeFn) => {
   document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
   closeFn?.()
 }
 
+function LanguageSwitch({ compact = false }) {
+  const { language, setLanguage, t } = useI18n()
+
+  return (
+    <div
+      className={`inline-flex items-center rounded-xl glass p-1 ${compact ? 'w-full' : ''}`}
+      role="group"
+      aria-label={t.nav.languageLabel}
+    >
+      {['en', 'ru'].map(lang => (
+        <button
+          key={lang}
+          type="button"
+          onClick={() => setLanguage(lang)}
+          className={`${compact ? 'flex-1' : ''} min-h-0 h-8 px-3 rounded-lg text-[11px] font-semibold uppercase transition-colors ${
+            language === lang
+              ? 'bg-blue/20 text-blue'
+              : 'text-muted hover:text-bright hover:bg-white/5'
+          }`}
+          aria-pressed={language === lang}
+        >
+          {lang}
+        </button>
+      ))}
+    </div>
+  )
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const [open, setOpen]         = useState(false)
+  const [open, setOpen] = useState(false)
+  const { t } = useI18n()
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 40)
@@ -25,7 +47,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
-  // Lock body scroll when drawer open
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -43,7 +64,6 @@ export default function Navbar() {
       >
         <div className="section-wrap">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
             <a
               href="#hero"
               onClick={e => { e.preventDefault(); scrollTo('#hero') }}
@@ -57,9 +77,8 @@ export default function Navbar() {
               </span>
             </a>
 
-            {/* Desktop links */}
             <div className="hidden md:flex items-center gap-1">
-              {LINKS.map(link => (
+              {t.nav.links.map(link => (
                 <a
                   key={link.name}
                   href={link.href}
@@ -72,18 +91,20 @@ export default function Navbar() {
             </div>
 
             <div className="flex items-center gap-2">
+              <div className="hidden sm:block">
+                <LanguageSwitch />
+              </div>
               <a
                 href="#contact"
                 onClick={e => { e.preventDefault(); scrollTo('#contact') }}
                 className="btn-primary hidden md:inline-flex py-2 px-4 lg:px-5 text-xs"
               >
-                Hire me
+                {t.nav.hire}
               </a>
-              {/* Hamburger — big enough touch target */}
               <button
                 onClick={() => setOpen(v => !v)}
                 className="md:hidden w-11 h-11 flex items-center justify-center rounded-xl text-dim hover:text-bright hover:bg-white/5 transition-colors"
-                aria-label={open ? 'Close menu' : 'Open menu'}
+                aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
                 aria-expanded={open}
               >
                 {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -93,7 +114,6 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile drawer */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -113,7 +133,10 @@ export default function Navbar() {
               transition={{ type: 'spring', stiffness: 300, damping: 32 }}
               className="absolute right-0 top-0 h-full w-[min(280px,85vw)] glass-strong flex flex-col pt-20 pb-10 px-5 gap-1"
             >
-              {LINKS.map((link, i) => (
+              <div className="mb-4">
+                <LanguageSwitch compact />
+              </div>
+              {t.nav.links.map((link, i) => (
                 <motion.a
                   key={link.name}
                   href={link.href}
@@ -132,7 +155,7 @@ export default function Navbar() {
                   onClick={e => { e.preventDefault(); scrollTo('#contact', () => setOpen(false)) }}
                   className="btn-primary w-full text-center"
                 >
-                  Hire me
+                  {t.nav.hire}
                 </a>
               </div>
             </motion.div>
