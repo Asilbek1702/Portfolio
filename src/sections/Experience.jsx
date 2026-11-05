@@ -1,44 +1,23 @@
 import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-import { Briefcase } from 'lucide-react'
+import { BriefcaseBusiness, GraduationCap } from 'lucide-react'
 import SectionTitle from '../components/SectionTitle'
 import { useI18n } from '../i18n'
 
 export default function Experience() {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 })
   const { t } = useI18n()
-  const job = t.experience.job
-
-  return (
-    <section id="experience" className="relative py-24 lg:py-32">
-      <div className="section-wrap">
-        <SectionTitle {...t.experience.title} />
-
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55 }}
-          className="glass rounded-2xl p-6 lg:p-8 max-w-3xl border border-blue/15"
-        >
-          <div className="flex items-start gap-4">
-            <div className="w-11 h-11 rounded-xl bg-blue/10 flex items-center justify-center shrink-0">
-              <Briefcase className="w-5 h-5 text-blue" />
-            </div>
-            <div className="flex-1">
-              <div className="flex flex-wrap items-center gap-2 mb-1">
-                <h3 className="font-semibold text-bright text-base">{job.role}</h3>
-                <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-green-500/15 text-green-400">
-                  {job.current}
-                </span>
-              </div>
-              <p className="text-sm text-blue mb-1">{job.company}</p>
-              <p className="text-xs text-muted mb-4">{job.period}</p>
-              <p className="text-sm text-dim leading-relaxed">{job.desc}</p>
-            </div>
-          </div>
-        </motion.div>
+  const entries = [
+    { icon: BriefcaseBusiness, type: t.experience.contractLabel, role: t.experience.job.role, company: t.experience.job.company, period: t.experience.job.period, desc: t.experience.job.desc, responsibilities: t.experience.job.responsibilities, stack: t.experience.job.stack },
+    { icon: GraduationCap, type: t.experience.educationLabel, role: t.experience.educationRole, company: 'Central Asian University', period: t.experience.educationPeriod, desc: t.experience.educationDesc },
+  ]
+  return <section id="experience" className="relative py-24 lg:py-32">
+    <div className="section-wrap">
+      <SectionTitle {...t.experience.title}/>
+      <div className="grid md:grid-cols-2 gap-4 max-w-5xl">
+        {entries.map(({ icon: Icon, type, role, company, period, desc, responsibilities, stack }, i) => <motion.article key={type} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .08 }} className="glass rounded-xl p-6">
+          <div className="flex items-center justify-between gap-3 mb-6"><div className="w-10 h-10 rounded-md bg-blue/10 text-blue flex items-center justify-center"><Icon className="w-5 h-5"/></div><span className="section-kicker">{type}</span></div>
+          <h3 className="text-lg font-bold mb-1">{role}</h3><p className="text-blue text-sm font-semibold mb-1">{company}</p><p className="font-mono text-[11px] text-muted mb-4">{period}</p><p className="text-sm text-dim leading-7">{desc}</p>{responsibilities?.length > 0 && <ul className="experience-points mt-4">{responsibilities.map(item => <li key={item}>{item}</li>)}</ul>}{stack?.length > 0 && <div className="flex flex-wrap gap-2 mt-5" aria-label="Technologies used">{stack.map(item => <span className="tag" key={item}>{item}</span>)}</div>}
+        </motion.article>)}
       </div>
-    </section>
-  )
+    </div>
+  </section>
 }

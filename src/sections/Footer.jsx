@@ -13,15 +13,15 @@ export default function Footer() {
   const { t } = useI18n()
 
   return (
-    <footer className="relative border-t border-white/[0.06] py-14 lg:py-16">
+    <footer className="relative border-t border-border py-14 lg:py-16">
       <div className="section-wrap">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-12">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-grad-blue-purple flex items-center justify-center">
-                <span className="font-mono text-white text-sm font-bold">A</span>
+              <div className="w-8 h-8 rounded-md bg-blue flex items-center justify-center">
+                <span className="font-mono text-black text-xs font-bold">AT</span>
               </div>
-              <span className="font-semibold text-bright text-sm">Asilbek<span className="text-blue">.</span>dev</span>
+              <span className="font-semibold text-bright text-sm">ASILBEK<span className="text-blue">.</span>DEV</span>
             </div>
             <p className="text-xs text-muted leading-relaxed max-w-xs mb-5">
               {t.footer.text}
@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[11px] text-muted">
             {t.footer.copyright(new Date().getFullYear())}
           </p>

@@ -6,10 +6,10 @@ const translations = {
   en: {
     nav: {
       links: [
+        { name: 'Projects', href: '#projects' },
         { name: 'About', href: '#about' },
         { name: 'Stack', href: '#tech' },
         { name: 'Experience', href: '#experience' },
-        { name: 'Projects', href: '#projects' },
         { name: 'AI', href: '#ai-tools' },
         { name: 'Contact', href: '#contact' },
       ],
@@ -21,31 +21,31 @@ const translations = {
     hero: {
       status: 'Open to opportunities',
       intro: "Hi, I'm",
-      role: 'Full-Stack Developer',
-      text: 'I am a full-stack developer with experience building commercial web applications. I work with React, FastAPI, Node.js, PostgreSQL, Docker, and AI API, independently implementing projects from concept to production.',
+      role: 'I build practical web products.',
+      text: 'I turn requirements into working interfaces and backend features. My strongest project is a live multilingual website for an industrial manufacturer, alongside academic work in network security and several full-stack implementations.',
       viewWork: 'View my work',
       contact: 'Get in touch',
       scroll: 'Scroll',
       scrollLabel: 'Scroll down',
     },
     about: {
-      title: { eyebrow: 'About me', title: 'Building digital', highlight: 'experiences' },
+      title: { eyebrow: 'About me', title: 'What I', highlight: 'build' },
       bio: [
-        "Full-Stack Developer and Computer Science graduate from Central Asian University (Tashkent). I build modern web applications from concept to production, combining responsive React frontends with scalable Python and Node.js backends.",
-        "I work across the entire development lifecycle: UI implementation, REST API development, database design, authentication, deployment, and infrastructure. My stack includes React, Next.js, Python (FastAPI, Django), Node.js, PostgreSQL, Docker, Supabase, and cloud deployment.",
-        'Currently, I develop internal systems and corporate web solutions for Energomax, integrating AI-powered features, automation tools, and backend services to improve business workflows. I also actively use modern AI development tools to accelerate development while maintaining code quality.',
+        "Computer Science graduate from Central Asian University in Tashkent. I focus on building web applications, connecting frontend interfaces to backend services, and turning requirements into working features.",
+        "My practical experience includes React interfaces, REST API development, relational databases, authentication flows, and application deployment. I have worked with React, Next.js, Python (FastAPI, Django), Node.js, PostgreSQL, Docker, and Supabase.",
+        'I prefer learning through implementation: building a feature, testing its behaviour, investigating failures, and documenting the result. I use AI coding tools as assistants, while reviewing and validating the code myself.',
       ],
       stats: [
-        { n: '1+', label: 'Year coding' },
-        { n: '8+', label: 'Projects built' },
-        { n: '10+', label: 'Technologies' },
-        { n: 'CAU', label: 'University' },
+        { n: '2026', label: 'CS graduate' },
+        { n: '01', label: 'Live company website' },
+        { n: '03', label: 'Website languages' },
+        { n: 'TAS', label: 'Based in Tashkent' },
       ],
       skills: [
         { title: 'Frontend', desc: 'React, Next.js, TypeScript, TailwindCSS' },
         { title: 'Backend', desc: 'FastAPI, Python, PostgreSQL, Node.js' },
-        { title: 'DevOps', desc: 'Docker, CI/CD, Render, Vercel, AWS' },
-        { title: 'AI / ML', desc: 'OpenAI API, Anthropic, LangChain' },
+        { title: 'DevOps', desc: 'Docker, GitHub, Vercel, Render, Linux' },
+        { title: 'AI / ML', desc: 'LLM APIs, prompt design, Telegram integration' },
         { title: 'Architecture', desc: 'REST, JWT Auth, Clean Architecture' },
         { title: 'Testing', desc: 'Jest, Pytest, Swagger, Error handling' },
       ],
@@ -53,15 +53,19 @@ const translations = {
     tech: {
       title: { eyebrow: 'Tech Stack', title: 'My', highlight: 'toolkit' },
       categories: ['Frontend', 'Backend', 'DevOps & Tools', 'AI & Testing'],
+      intro: 'Tools I have used in projects. This list reflects practical exposure, not self-assigned proficiency percentages.',
     },
     experience: {
-      title: { eyebrow: 'Work Experience', title: 'Where I', highlight: "'ve worked" },
+      title: { eyebrow: 'Experience & Education', title: 'Background and', highlight: 'practice' },
+      contractLabel: 'Contract', educationLabel: 'Education', educationRole: 'BSc Computer Science', educationPeriod: 'Graduated · May 2026', educationDesc: 'Computer Science degree. Graduation project focused on an anomaly-detection IDS/IPS for university networks, including API work, evaluation and systematic literature review.',
       job: {
-        role: 'Full-stack Developer',
-        company: 'Energomax',
-        period: 'June 21, 2026 - Present',
-        current: 'Current',
-        desc: 'As a Full-Stack Developer at Energomax, I am responsible for designing, developing, deploying, and maintaining the companys web applications. My work includes frontend development with React, backend services with Python, database architecture, cloud deployment, AI integrations, and continuous improvement of internal business systems.',
+        role: 'Web Developer (Contract)',
+        company: 'Energomax Group',
+        period: 'June – August 2026',
+        current: 'Contract',
+        desc: 'Developed and updated the company website in WordPress. Worked on page structure and content presentation, adapting the site to the company’s business needs. The role focused on implementing website changes and maintaining a consistent company-facing presentation.',
+        responsibilities: ['WordPress website development and updates', 'Page structure and content presentation', 'Adapting website sections to company requirements'],
+        stack: ['WordPress', 'LocalWP', 'Git'],
       },
     },
     projects: {
@@ -70,11 +74,11 @@ const translations = {
         {
           title: 'IDS/IPS - Anomaly Detection System',
           subtitle: 'Graduation Research Project',
-          desc: 'Final academic project: Intrusion Detection & Prevention System for university networks with a Fast API backend, REST API endpoints, and React interface. Conducted full Systematic Literature Review (PRISMA methodology, 15+ peer-reviewed sources). Identified a novel research gap - adaptive IPS threshold tuning. Presented at oral defense.',
+          desc: 'Final academic project: Intrusion Detection & Prevention System for university networks with a FastAPI backend, REST API endpoints, and React interface. Conducted a Systematic Literature Review using PRISMA methodology; 15 studies were included in the final review. Identified a novel research gap - adaptive IPS threshold tuning. Presented at oral defense.',
         },
         {
           title: 'Uztransformator - Factory Catalog Site',
-          desc: 'Multilingual (RU/UZ/EN) catalog website for an electrical equipment factory. React frontend with Supabase (Postgres + Auth + RLS) as production data store, deployed on Vercel. Standalone FastAPI + SQLAlchemy showcase backend with layered architecture (routers -> services -> crud -> models), JWT auth, bcrypt, rate limiting, Docker + Nginx + GitHub Actions CI.',
+          desc: 'Multilingual (RU/UZ/EN) catalog website for an electrical equipment factory. React frontend with Supabase (Postgres, Auth and RLS) as the production data store, deployed on Vercel. An additional FastAPI + SQLAlchemy backend prototype demonstrates layered routing, JWT authentication and containerized deployment; it is separate from the production Supabase setup.',
         },
         {
           title: 'E-Commerce + Stripe',
@@ -174,7 +178,7 @@ const translations = {
       copy: "You'll receive a copy to your email address.",
     },
     footer: {
-      text: 'Full-Stack Developer based in Tashkent. Building production-ready web apps with React, FastAPI, Docker, and AI integrations.',
+      text: 'Developer based in Tashkent. Web projects, backend services and practical AI integrations with React, Python and FastAPI.',
       navigation: 'Navigation',
       contact: 'Contact',
       copyright: year => `© ${year} Asilbek. Built with React + TailwindCSS.`,
@@ -184,10 +188,10 @@ const translations = {
   ru: {
     nav: {
       links: [
+        { name: 'Проекты', href: '#projects' },
         { name: 'Обо мне', href: '#about' },
         { name: 'Стек', href: '#tech' },
         { name: 'Опыт', href: '#experience' },
-        { name: 'Проекты', href: '#projects' },
         { name: 'AI', href: '#ai-tools' },
         { name: 'Контакты', href: '#contact' },
       ],
@@ -199,31 +203,31 @@ const translations = {
     hero: {
       status: 'Открыт к предложениям',
       intro: 'Привет, я',
-      role: 'Full-Stack разработчик',
-      text: 'Full-Stack разработчик с опытом создания коммерческих веб-приложений. Работаю с React, FastAPI, Node.js, PostgreSQL, Docker и AI API, самостоятельно реализуя проекты от идеи до продакшена.',
+      role: 'Разрабатываю веб-продукты для реальных задач.',
+      text: 'Превращаю требования в работающие интерфейсы и backend-функции. Главный практический проект — опубликованный многоязычный сайт промышленного предприятия. Также в портфолио есть академическая работа по сетевой безопасности и несколько full-stack реализаций.',
       viewWork: 'Смотреть проекты',
       contact: 'Связаться',
       scroll: 'Вниз',
       scrollLabel: 'Прокрутить вниз',
     },
     about: {
-      title: { eyebrow: 'Обо мне', title: 'Создаю цифровые', highlight: 'продукты' },
+      title: { eyebrow: 'Обо мне', title: 'Что я', highlight: 'разрабатываю' },
       bio: [
-        'Разработчик полного стека и выпускник факультета компьютерных наук Центральноазиатского университета (Ташкент). Я создаю современные веб-приложения от концепции до внедрения, сочетая адаптивные фронтенды на React с масштабируемыми бэкендами на Python и Node.js.',
-        'Я работаю на всех этапах разработки: реализация пользовательского интерфейса, разработка REST API, проектирование баз данных, аутентификация, развертывание и инфраструктура. Мой стек включает React, Next.js, Python (FastAPI, Django), Node.js, PostgreSQL, Docker, Supabase и облачное развертывание.',
-        'В настоящее время я разрабатываю внутренние системы и корпоративные веб-решения для Energomax, интегрируя функции на основе ИИ, инструменты автоматизации и бэкенд-сервисы для улучшения бизнес-процессов. Я также активно использую современные инструменты разработки на основе ИИ для ускорения разработки при сохранении качества кода.',
+        'Выпускник факультета компьютерных наук Central Asian University в Ташкенте. Сосредоточен на разработке веб-приложений, интеграции интерфейсов с backend-сервисами и превращении требований в работающие функции.',
+        'Мой практический опыт включает React-интерфейсы, разработку REST API, реляционные базы данных, аутентификацию и развёртывание приложений. Работал с React, Next.js, Python (FastAPI, Django), Node.js, PostgreSQL, Docker и Supabase.',
+        'Предпочитаю учиться через практику: реализовать функцию, проверить её поведение, разобраться с ошибками и задокументировать результат. Использую AI-инструменты как помощников, самостоятельно проверяя и тестируя полученный код.',
       ],
       stats: [
-        { n: '1+', label: 'год в коде' },
-        { n: '8+', label: 'проектов' },
-        { n: '10+', label: 'технологий' },
-        { n: 'CAU', label: 'университет' },
+        { n: '2026', label: 'выпуск CAU' },
+        { n: '01', label: 'опубликованный сайт' },
+        { n: '03', label: 'языка сайта' },
+        { n: 'TAS', label: 'Ташкент' },
       ],
       skills: [
         { title: 'Frontend', desc: 'React, Next.js, TypeScript, TailwindCSS' },
         { title: 'Backend', desc: 'FastAPI, Python, PostgreSQL, Node.js' },
-        { title: 'DevOps', desc: 'Docker, CI/CD, Render, Vercel, AWS' },
-        { title: 'AI / ML', desc: 'OpenAI API, Anthropic, LangChain' },
+        { title: 'DevOps', desc: 'Docker, GitHub, Vercel, Render, Linux' },
+        { title: 'AI / ML', desc: 'LLM APIs, prompt design, Telegram integration' },
         { title: 'Архитектура', desc: 'REST, JWT Auth, Clean Architecture' },
         { title: 'Тестирование', desc: 'Jest, Pytest, Swagger, обработка ошибок' },
       ],
@@ -231,15 +235,19 @@ const translations = {
     tech: {
       title: { eyebrow: 'Технологии', title: 'Мой', highlight: 'инструментарий' },
       categories: ['Frontend', 'Backend', 'DevOps и инструменты', 'AI и тестирование'],
+      intro: 'Технологии, которые я использовал в проектах. Список отражает практический опыт, а не субъективные проценты владения.',
     },
     experience: {
-      title: { eyebrow: 'Опыт работы', title: 'Где я', highlight: 'работал' },
+      title: { eyebrow: 'Опыт и образование', title: 'Практика и', highlight: 'образование' },
+      contractLabel: 'Контракт', educationLabel: 'Образование', educationRole: 'Бакалавр компьютерных наук', educationPeriod: 'Выпуск · май 2026', educationDesc: 'Образование в области компьютерных наук. Выпускной проект посвящён IDS/IPS для университетских сетей: API, оценка результатов и систематический обзор литературы.' ,
       job: {
-        role: 'Full-stack разработчик',
-        company: 'Energomax',
-        period: '21 июня 2026 - по настоящее время',
-        current: 'Сейчас',
-        desc: 'В качестве Full-Stack разработчика в Energomax я отвечаю за проектирование, разработку, развертывание и поддержку веб-приложений компании. Моя работа включает в себя разработку фронтенда с использованием React, бэкенд-сервисов на Python, архитектуру баз данных, развертывание в облаке, интеграцию с ИИ и постоянное совершенствование внутренних бизнес-систем.',
+        role: 'Web-разработчик (контракт)',
+        company: 'Energomax Group',
+        period: 'Июнь – август 2026',
+        current: 'Контракт',
+        desc: 'Разрабатывал и обновлял корпоративный сайт на WordPress. Работал над структурой страниц и представлением контента, адаптируя сайт под задачи компании. Основной фокус — реализация изменений сайта и поддержание целостного представления компании в интернете.',
+        responsibilities: ['Разработка и обновление сайта на WordPress', 'Работа со структурой страниц и представлением контента', 'Адаптация разделов сайта под требования компании'],
+        stack: ['WordPress', 'LocalWP', 'Git'],
       },
     },
     projects: {
@@ -248,11 +256,11 @@ const translations = {
         {
           title: 'IDS/IPS - система обнаружения аномалий',
           subtitle: 'Выпускной исследовательский проект',
-          desc: 'Финальный академический проект: Intrusion Detection & Prevention System для университетских сетей с FastAPI-бэкендом, REST API и React-интерфейсом. Провел Systematic Literature Review по методологии PRISMA на 15+ рецензируемых источниках. Нашел исследовательский пробел - адаптивная настройка порогов IPS. Защитил проект устно.',
+          desc: 'Финальный академический проект: Intrusion Detection & Prevention System для университетских сетей с FastAPI-бэкендом, REST API и React-интерфейсом. Провёл систематический обзор литературы (Systematic Literature Review) по методологии PRISMA; в итоговый обзор вошли 15 исследований. Нашел исследовательский пробел - адаптивная настройка порогов IPS. Защитил проект устно.',
         },
         {
           title: 'Uztransformator - сайт-каталог завода',
-          desc: 'Многоязычный (RU/UZ/EN) сайт-каталог электротехнического завода. React-фронтенд с Supabase (Postgres + Auth + RLS) в качестве продакшен-хранилища данных, деплой на Vercel. Отдельный showcase-бэкенд на FastAPI + SQLAlchemy со слоистой архитектурой (routers -> services -> crud -> models), JWT-аутентификация, bcrypt, rate limiting, Docker + Nginx + GitHub Actions CI.',
+          desc: 'Многоязычный (RU/UZ/EN) сайт-каталог электротехнического завода. React-фронтенд с Supabase (Postgres, Auth и RLS) как production-хранилищем данных, размещён на Vercel. Дополнительный прототип backend на FastAPI + SQLAlchemy демонстрирует разделение маршрутов и сервисов, JWT-аутентификацию и контейнеризацию; он отделён от production-конфигурации Supabase.',
         },
         {
           title: 'E-Commerce + Stripe',
@@ -352,7 +360,7 @@ const translations = {
       copy: 'Вы получите копию на свой email.',
     },
     footer: {
-      text: 'Full-Stack разработчик из Ташкента. Создаю production-ready веб-приложения на React, FastAPI, Docker и с AI-интеграциями.',
+      text: 'Разработчик из Ташкента. Веб-проекты, backend-сервисы и практические AI-интеграции на React, Python и FastAPI.',
       navigation: 'Навигация',
       contact: 'Контакты',
       copyright: year => `© ${year} Asilbek. Сделано на React + TailwindCSS.`,

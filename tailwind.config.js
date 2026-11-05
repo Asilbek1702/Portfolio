@@ -7,16 +7,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg:      '#060910',
-        surface: '#0D1521',
-        card:    '#111827',
-        border:  'rgba(255,255,255,0.08)',
-        blue:    '#63B3ED',
-        purple:  '#9F7AEA',
-        pink:    '#F687B3',
-        dim:     '#A0AEC0',
-        muted:   '#4A5568',
-        bright:  '#E8EAED',
+        bg: 'rgb(var(--bg) / <alpha-value>)',
+        surface: 'rgb(var(--surface) / <alpha-value>)',
+        card: 'rgb(var(--card) / <alpha-value>)',
+        border: 'rgb(var(--border) / <alpha-value>)',
+        blue: 'rgb(var(--accent) / <alpha-value>)',
+        purple: 'rgb(var(--accent) / <alpha-value>)',
+        pink: 'rgb(var(--accent) / <alpha-value>)',
+        dim: 'rgb(var(--dim) / <alpha-value>)',
+        muted: 'rgb(var(--muted) / <alpha-value>)',
+        bright: 'rgb(var(--bright) / <alpha-value>)',
       },
       fontFamily: {
         sans:  ['Sora', 'system-ui', 'sans-serif'],

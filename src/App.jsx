@@ -1,4 +1,3 @@
-import ParticlesBackground from './components/ParticlesBackground'
 import Navbar from './components/Navbar'
 import Hero from './sections/Hero'
 import About from './sections/About'
@@ -11,15 +10,16 @@ import Footer from './sections/Footer'
 
 function App() {
   return (
-    <div className="noise-bg relative min-h-screen bg-bg text-bright overflow-x-hidden">
-      <ParticlesBackground />
+    <div className="portfolio-shell relative min-h-screen bg-bg text-bright overflow-x-hidden">
+      <div className="ambient-grid" aria-hidden="true" />
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <Navbar />
-      <main className="relative z-10">
+      <main id="main-content" className="relative z-10" tabIndex="-1">
         <Hero />
+        <Projects />
         <About />
         <TechStack />
         <Experience />
-        <Projects />
         <AITools />
         <Contact />
       </main>
