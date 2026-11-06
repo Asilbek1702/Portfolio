@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 :root { color-scheme: dark; --bg: 11 11 13; --surface: 20 20 24; --card: 25 25 30; --border: 53 53 60; --bright: 245 245 245; --dim: 161 161 170; --muted: 113 113 122; --accent: 163 230 53; --accent-strong: 132 204 22; }
-:root[data-theme='light'] { color-scheme: light; --bg: 247 247 245; --surface: 255 255 255; --card: 250 250 249; --border: 228 228 231; --bright: 24 24 27; --dim: 82 82 91; --muted: 113 113 122; --accent: 101 163 13; --accent-strong: 77 124 15; }
+:root[data-theme='light'] { color-scheme: light; --bg: 255 255 255; --surface: 255 255 255; --card: 250 250 249; --border: 228 228 231; --bright: 24 24 27; --dim: 82 82 91; --muted: 113 113 122; --accent: 101 163 13; --accent-strong: 77 124 15; }
 
 @layer base {
   * { box-sizing: border-box; }
@@ -58,13 +58,22 @@
 :root[data-theme='light'] .ambient-grid { opacity: .18; }
 :root[data-theme='light'] .noise-bg::after { opacity: .012; }
 :root[data-theme='light'] footer { border-color: rgb(var(--border)) !important; }
+/* Keep the page canvas identical across desktop and mobile in light mode. */
+:root[data-theme='light'],
+:root[data-theme='light'] body,
+:root[data-theme='light'] #root,
+:root[data-theme='light'] .portfolio-shell {
+  background-color: #fff !important;
+  background-image: none;
+}
+:root[data-theme='light'] .mobile-nav-panel { background-color: #fff; }
+:root[data-theme='light'] .glass,
+:root[data-theme='light'] .glass-strong { background-color: #fff; }
+
 @media (max-width: 767px) {
-  /* Mobile light mode uses a true white canvas; the previous warm off-white read as grey on phones. */
-  :root[data-theme='light'] { --bg: 255 255 255; }
-  :root[data-theme='light'], :root[data-theme='light'] body, :root[data-theme='light'] #root, :root[data-theme='light'] .portfolio-shell { background-color: #FFFFFF !important; color: #18181B; }
-  :root[data-theme='light'] .mobile-nav-panel { background-color: #FFFFFF; }
-  :root[data-theme='light'] .ambient-grid { display: none; }
+  :root[data-theme='light'] .ambient-grid,
   :root[data-theme='light'] .noise-bg::after { display: none; }
+  :root[data-theme='light'] body { overscroll-behavior-y: none; }
 }
 
 
@@ -207,3 +216,70 @@ img, svg { max-width: 100%; }
   .lightbox-figure figcaption { text-align:center; font-size:.75rem; }
 }
 @media(hover:none) { .btn-primary:hover, .glass-hover:hover { transform:none; } }
+
+/* v2.7 — responsive layout refinement across the full portfolio */
+@media (max-width: 767px) {
+  html { scroll-padding-top: 76px; }
+  .section-wrap { padding-left: 1.125rem; padding-right: 1.125rem; }
+  main > section { padding-top: 4.25rem; padding-bottom: 4.25rem; }
+  #hero { min-height: auto; padding-top: 6.5rem; padding-bottom: 3.5rem; }
+  #hero .grid { gap: 2.75rem; }
+  #hero .text-hero { font-size: clamp(2.7rem, 13vw, 4.4rem); line-height: .99; }
+  #hero .max-w-md { max-width: min(78vw, 330px); }
+  #hero .mt-16 { margin-top: 2.75rem; }
+  .section-heading { font-size: clamp(1.85rem, 8vw, 2.65rem); }
+  main > section .mb-14 { margin-bottom: 2rem; }
+  .project-featured-header { gap: 1.25rem; }
+  .project-featured-header > div:last-child { width: 100%; }
+  .project-featured-header > div:last-child a { flex: 1 1 9rem; }
+  .project-gallery-heading { padding: 1.25rem 1rem .85rem; }
+  .project-gallery { padding-left: 1rem; padding-right: 1rem; }
+  .project-gallery-real { grid-template-columns: 1fr 1fr; }
+  .project-shot { border-radius: .55rem; }
+  .project-shot-caption { gap: .4rem; padding: 1.25rem .55rem .55rem; font-size: .65rem; }
+  .project-shot-caption > span { font-size: 9px; }
+  .project-shot-caption svg { width: .75rem; height: .75rem; }
+  .project-contribution { padding-left: 1rem; padding-right: 1rem; }
+  .ids-case-study { padding: 1rem; }
+  .ids-metrics strong { font-size: 1.65rem; }
+  .project-list-card { padding: 1.1rem; }
+  .about-facts strong { font-size: 1.25rem; }
+  .architecture-grid { grid-template-columns: 1fr; }
+  .project-lightbox { gap: .25rem; }
+  .lightbox-figure { width: 100%; }
+  .lightbox-figure figcaption { flex-wrap: wrap; justify-content: center; line-height: 1.5; }
+  .lightbox-close { top: .65rem; right: .65rem; }
+  .lightbox-arrow { top: auto; bottom: .65rem; transform: none; }
+  .lightbox-prev { left: calc(50% - 3rem); }
+  .lightbox-next { right: calc(50% - 3rem); }
+  .experience-points { padding-left: 1rem; }
+  #contact .glass { padding: 1.1rem; }
+  #contact form { gap: 1rem; }
+  footer .section-wrap { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+}
+
+@media (max-width: 380px) {
+  .section-wrap { padding-left: .9rem; padding-right: .9rem; }
+  #hero .text-hero { font-size: clamp(2.45rem, 12.5vw, 3.1rem); }
+  .btn-primary, .btn-ghost { padding-left: 1rem; padding-right: 1rem; font-size: .8rem; }
+  .project-facts { grid-template-columns: 1fr; }
+  .project-facts > div + div { border-left: 0; border-top: 1px solid rgb(var(--border)); }
+  .project-gallery-real { grid-template-columns: 1fr; }
+  .project-gallery-real .project-shot-wide { grid-column: auto; }
+  .ids-metrics span { font-size: .65rem; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #hero { min-height: 82vh; }
+  #hero .grid { gap: 2.5rem; }
+  .section-wrap { padding-left: 2rem; padding-right: 2rem; }
+}
+
+/* Prevent long technical strings and translated labels from widening the page. */
+.project-featured, .project-list-card, .ids-details-grid > section,
+.about-editorial-grid > *, .architecture-grid > div, #contact form,
+#contact .glass { min-width: 0; overflow-wrap: anywhere; }
+
+@media (hover: none) {
+  .project-list-card:hover, .glass-hover:hover { transform: none; }
+}

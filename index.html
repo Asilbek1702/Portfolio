@@ -13,6 +13,18 @@
     <meta name="description" content="Developer based in Tashkent. Selected web, backend and AI integration projects built with React, Python, FastAPI and PostgreSQL." />
     <meta name="author" content="Asilbek Tashpulatov" />
     <meta name="theme-color" content="#0B0B0D" />
+    <script>
+      // Apply the saved theme before React mounts to avoid a mismatched first paint.
+      try {
+        const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+        document.documentElement.dataset.theme = savedTheme;
+        document.documentElement.style.colorScheme = savedTheme;
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+        if (themeColor) themeColor.setAttribute('content', savedTheme === 'light' ? '#FFFFFF' : '#0B0B0D');
+      } catch (_) {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    </script>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
